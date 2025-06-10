@@ -50,23 +50,3 @@ def load_resources_from_csv(csv_filepath):
         processed_resources.append(resource)
     
     return processed_resources
-
-# if __name__ == '__main__':
-#     csv_file_path = 'github_data.csv'
-#     resources_db = load_resources_from_csv(csv_file_path)
-
-#     if resources_db:
-#         print(f"Loaded {len(resources_db)} resources.")
-#         print("\nFirst 3 resources:")
-#         for i, res in enumerate(resources_db[:3]):
-#             print(f"--- Resource {i+1} ---")
-#             print(f"  ID: {res['id']}")
-#             print(f"  Name: {res['name']}")
-#             print(f"  Type: {res['type']}")
-#             print(f"  URL: {res['url']}")
-#             print(f"  Description (first 100 chars): {res['description'][:100] if res['description'] else 'N/A'}...")
-#             print(f"  Tags: {res['tags'][:10]}")
-#             print(f"  Stars: {res['stars']}")
-#             print(f"  Language: {res['language']}")
-#     else:
-#         print("No resources loaded.")

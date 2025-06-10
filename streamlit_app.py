@@ -143,8 +143,7 @@ def main():
             with login_cols[0]:
                 username_input = st.text_input("Enter your Username:", key="username_login_main_area", placeholder="e.g., python_learner")
             with login_cols[1]:
-                # Add some space above the button to align better if text input is taller
-                st.write("") # Creates a little vertical space
+                st.write("")
                 if st.button("Login / Register", key="login_button_main_area", type="primary", use_container_width=True):
                     if username_input.strip():
                         st.session_state.username = username_input.strip()
@@ -193,11 +192,10 @@ def main():
                 recent_searches_to_show = list(reversed(history[-5:]))
 
                 if recent_searches_to_show:
-                    # Using more flexible columns based on number of items
                     num_cols = min(len(recent_searches_to_show), 5) # Max 5 columns
                     cols = st.columns(num_cols)
                     for i, past_query in enumerate(recent_searches_to_show):
-                        with cols[i % num_cols]: # Distribute among columns
+                        with cols[i % num_cols]:
                             if st.button(f"📜 {past_query}", key=f"dashboard_history_query_{i}", help=f"Search for: {past_query}", use_container_width=True):
                                 st.session_state.user_query_main = past_query
                                 st.rerun()
@@ -207,43 +205,6 @@ def main():
                 st.caption("No search history yet. Start searching below!")
         
         st.markdown("---")
-        
-    # else:
-    #     st.sidebar.success(f"Logged in as: {st.session_state.username}")
-    #     if st.sidebar.button("Logout"):
-    #         st.session_state.username = None
-    #         st.session_state.current_user_profile = None
-    #         st.session_state.user_query_main = ""
-    #         if 'engine_ready_message_shown' in st.session_state:
-    #             del st.session_state.engine_ready_message_shown
-    #         st.rerun()
-        
-    #     st.markdown("---")
-    #     st.subheader("Your Recent Searches")
-    #     if st.session_state.current_user_profile and st.session_state.current_user_profile.get("search_history"):
-    #         history = st.session_state.current_user_profile["search_history"]
-            
-    #         recent_searches_to_show = list(reversed(history[-5:]))
-
-    #         if recent_searches_to_show:
-    #             cols = st.columns(len(recent_searches_to_show))
-    #             for i, past_query in enumerate(recent_searches_to_show):
-    #                 with cols[i]:
-    #                     if st.button(past_query, key=f"dashboard_history_query_{i}", help=f"Search for: {past_query}", use_container_width=True):
-    #                         st.session_state.user_query_main = past_query
-    #                         st.rerun()
-    #         else:
-    #             st.caption("No search history yet. Start searching!")
-    #     else:
-    #         st.caption("No search history yet. Start searching!")
-    #     st.markdown("---")
-
-    #     if st.session_state.current_user_profile and st.session_state.current_user_profile.get("search_history"):
-    #         with st.sidebar.expander("Your Search History", expanded=False):
-    #             for i, past_query in enumerate(reversed(st.session_state.current_user_profile["search_history"][-10:])):
-    #                 if st.button(past_query, key=f"past_query_{i}", help="Click to search this again"):
-    #                     st.session_state.user_query_main = past_query
-    #                     st.rerun()
 
     csv_path = 'github_data.csv'
     
@@ -263,15 +224,6 @@ def main():
     if not st.session_state.engine_ready_message_shown:
         st.success("🔍 Recommendation engine is ready! Let's find some resources.")
         st.session_state.engine_ready_message_shown = True
-    
-    # if 'engine_ready_message_shown' not in st.session_state:
-    #         st.success("Recommendation engine ready!")
-    #         st.session_state.engine_ready_message_shown = True
-    
-    # st.markdown("---")
-    
-    # if 'user_query_main' not in st.session_state:
-    #         st.session_state.user_query_main = ""
 
     st.subheader("🚀 Find Your Next Python Resource")
     user_query = st.text_input("What are you looking for today?",
