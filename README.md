@@ -41,7 +41,7 @@ A Streamlit application that provides personalized recommendations for Python le
 ## 📁 Project Structure
 
 ```
-AI_Smart_Recommendation_Engine/
+Smart_Recommendation_Engine/
 ├── __init__.py     # Making sure that this folder contains .py files
 ├── app.py      # Main Streamlit application script
 ├── github_data.csv     # Dataset of Python resources
@@ -59,8 +59,8 @@ Follow these steps to run the project locally:
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/Arkya-Bhatt/AI_Smart_Recommendation_Engine.git
-    cd AI_Smart_Recommendation_Engine
+    git clone https://github.com/Arkya-Bhatt/Smart_Recommendation_Engine.git
+    cd Smart_Recommendation_Engine
     ```
 
 2.  **Create and Activate a Virtual Environment:**
