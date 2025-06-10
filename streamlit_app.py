@@ -160,8 +160,6 @@ def main():
                         st.warning("Please enter a username.")
     
     else:
-        # --- User is "Logged In" ---
-        # Sidebar for User Info and Logout
         st.sidebar.success(f"👤 Logged in as: **{st.session_state.username}**")
         if st.sidebar.button("Logout", use_container_width=True):
             st.session_state.username = None
