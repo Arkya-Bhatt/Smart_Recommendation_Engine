@@ -16,7 +16,7 @@ A Streamlit application that provides personalized recommendations for Python le
 
 ## 🚀 Live Demo
 
-[Live App on Streamlit Community Cloud](https://smart-python-resource-recommendation-engine.streamlit.app/)
+[Live App on Streamlit Community Cloud](https://smartrecommendationengine-tqywa88mrbdvh5cy9r3vew.streamlit.app/)
 
 ## 📸 Screenshots
 
