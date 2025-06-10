@@ -96,14 +96,14 @@ def vectorizer_and_matrix(resources_list):
 
 @st.cache_data
 def load_all_resources(csv_filepath):
-    print(f"Loading resources from {csv_filepath} for Streamlit app...") # For server console
+    print(f"Loading resources from {csv_filepath} for Streamlit app...")
     return load_resources_from_csv(csv_filepath)
 
 def get_recommendations_streamlit(query_text, all_resources, vectorizer, resource_matrix, top_n=5):
     if not query_text.strip() or not all_resources or vectorizer is None or resource_matrix is None:
         return []
 
-    lemmatized_query_text = lemmatize_text_streamlit(query_text) # Use Streamlit version
+    lemmatized_query_text = lemmatize_text_streamlit(query_text)
     query_tfidf_vector = vectorizer.transform([lemmatized_query_text])
     cosine_similarities = cosine_similarity(query_tfidf_vector, resource_matrix).flatten()
     
@@ -154,7 +154,7 @@ def main():
                             all_user_profiles[st.session_state.username] = st.session_state.current_user_profile
                             save_user_profiles(all_user_profiles)
                         st.session_state.user_query_main = ""
-                        st.session_state.engine_ready_message_shown = False # Reset for new login
+                        st.session_state.engine_ready_message_shown = False
                         st.rerun()
                     else:
                         st.warning("Please enter a username.")
@@ -184,13 +184,13 @@ def main():
             else:
                 st.warning("Please enter a username.")
         
-        with st.expander("🕰️ Your Recent Searches", expanded=True): # Start expanded
+        with st.expander("🕰️ Your Recent Searches", expanded=True):
             if st.session_state.current_user_profile and st.session_state.current_user_profile.get("search_history"):
                 history = st.session_state.current_user_profile["search_history"]
                 recent_searches_to_show = list(reversed(history[-5:]))
 
                 if recent_searches_to_show:
-                    num_cols = min(len(recent_searches_to_show), 5) # Max 5 columns
+                    num_cols = min(len(recent_searches_to_show), 5)
                     cols = st.columns(num_cols)
                     for i, past_query in enumerate(recent_searches_to_show):
                         with cols[i % num_cols]:
