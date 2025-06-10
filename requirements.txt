@@ -1,0 +1,6 @@
+numpy
+pandas
+scikit-learn
+streamlit
+plotly
+nltk>=3.8
